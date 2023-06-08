@@ -1,16 +1,20 @@
 public class Solution {
     public int[] TwoSum(int[] numbers, int target) {
-        Dictionary<int, int> dict = new();
-        for(int i = 0; i < numbers.Length; i++)
+        // two pointer
+        int left =0, right = numbers.Length - 1;
+        while(left != right)
         {
-            dict[numbers[i]] = i + 1;
-        }
-        for(int i = 0; i < numbers.Length; i++)
-        {
-            int neededNum = target - numbers[i];
-            if(dict.ContainsKey(neededNum) && i + 1 != dict[neededNum])
+            if(numbers[right] + numbers[left] > target)
             {
-                return new int[] {i+1, dict[neededNum]};
+                right--;
+            }
+            else if(numbers[right] + numbers[left] < target)
+            {
+                left++;
+            }
+            else if(numbers[right] + numbers[left] == target)
+            {
+                return new int[] {left+1, right+1};
             }
         }
         return default;

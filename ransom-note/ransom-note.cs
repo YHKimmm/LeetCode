@@ -1,12 +1,6 @@
 public class Solution {
     public bool CanConstruct(string ransomNote, string magazine) {
-        if(ransomNote.Length == 1 && magazine.Length == 1)
-        {
-            if(!ransomNote.StartsWith(magazine))
-            {
-                return false;
-            }
-        }
+
         Dictionary<char, int> ransomDict = new();
         Dictionary<char, int> magazineDict = new();
 

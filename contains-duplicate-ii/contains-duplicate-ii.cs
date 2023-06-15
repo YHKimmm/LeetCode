@@ -1,10 +1,9 @@
 public class Solution {
     public bool ContainsNearbyDuplicate(int[] nums, int k) {
-        int j;
-        for (var i = 0; i < nums.Length; i++)
+        for (int i = 0; i < nums.Length; i++)
         {
-            j = i + 1;
-            while (j < nums.Length && j <= i + k)
+            int j = i + 1;
+            while (j < nums.Length && Math.Abs(i - j) <= k)
             {
                 if (nums[i] == nums[j])
                 {
@@ -13,7 +12,6 @@ public class Solution {
                 j++;
             }
         }
-
         return false;
     }
 }

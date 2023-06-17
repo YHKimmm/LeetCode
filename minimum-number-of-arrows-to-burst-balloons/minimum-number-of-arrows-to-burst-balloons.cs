@@ -9,10 +9,12 @@ public class Solution {
             int end = points[i][1];
             if(start <= preArrow && preArrow <= end)
             {
+                // within the current ballon range, so we can keep using same arrow
                 continue;
             }
             else
             {
+                // use different arrow and different endpoint
                 res++;
                 preArrow = points[i][1];
             }

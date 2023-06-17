@@ -15,8 +15,8 @@ public class Solution {
             else
             {
                 // use different arrow and different endpoint
-                res++;
                 preArrow = points[i][1];
+                res++;
             }
         }        
         return res;

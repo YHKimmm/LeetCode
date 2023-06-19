@@ -1,9 +1,21 @@
 public class Solution {
     public bool IsValid(string s) {
-        while(s.Contains("()") || s.Contains("{}") || s.Contains("[]"))
+        Dictionary<char, char> dict = new();
+        dict[')'] = '(';
+        dict[']'] = '[';
+        dict['}'] = '{';
+        Stack<char> stack = new();
+        foreach(var c in s)
         {
-           s = s.Replace("()", "").Replace("{}", "").Replace("[]", "");
+            if(!dict.ContainsKey(c))
+            {
+                stack.Push(c);
+            }
+            else if(stack.Count() == 0 || dict[c] != stack.Pop())
+            {
+                return false;
+            }
         }
-        return s.Length == 0;
+        return stack.Count() == 0;
     }
 }
